@@ -50,7 +50,7 @@ include "koneksi.php";
        </td>
        <td>
         <h3 class="text-center">Sinar Cahaya CELL<br>
-           <h5 class="text-center">Jalan Kelender, Jakarta Timur.</h5></h3> 
+           <h5 class="text-center">Bintara 4, Bekasi Barat Kota Bekasi.</h5></h3> 
        </td>
        <td>
        </td>

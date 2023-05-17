@@ -122,7 +122,7 @@ if (isset($_SESSION['username'])){
                 </div> 
                 <div class="col-md-11">
                   <h2>Sinar Cahaya CELL <p class="pull-right" style="font-size: 16px !important;"><?php echo $_SESSION['username']; ?></p><h2><hr style="margin: 0px !important;">
-                  <h5>Jalan Kelender, Jakarta Timur.</h5>
+                  <h5>Bintara 4, Bekasi Barat Kota Bekasi.</h5>
                 </div>
               </div>
             </div>
