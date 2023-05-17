@@ -24,7 +24,21 @@ include "koneksi.php";
 		}
 </style>
 </head>
-<body onload="window.print(); history.back() " style="font-size: 20px;">
+<body onload="var css = '@page { size: landscape; }',
+    head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+
+  style.type = 'text/css';
+  style.media = 'print';
+
+  if (style.styleSheet){
+  style.styleSheet.cssText = css;
+  } else {
+  style.appendChild(document.createTextNode(css));
+  }
+
+  head.appendChild(style);
+  window.print(); history.back() " style="font-size: 20px;">
 <div class="container">
   
   <h3 align="center">REKAP STOK barang TANGGAL <?php echo date("d / M / Y"); ?></h3>
