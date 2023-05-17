@@ -44,16 +44,16 @@
 			$jumlah = 0;
 			$no = 1;
 			if (isset($tgl)) {
-				$sql = "SELECT a.*, b.nama_supp, c.nama_obat, z.tgl FROM tb_permintaan_list a 
+				$sql = "SELECT a.*, b.nama_supp, c.nama_barang, z.tgl FROM tb_permintaan_list a 
 				LEFT JOIN tb_permintaan z ON a.id_per = z.id_per 
 				LEFT JOIN tb_supplier b ON z.id_supp = b.id_supplier 
-				LEFT JOIN tb_obat c ON a.id_obat = c.id
+				LEFT JOIN tb_barang c ON a.id_barang = c.id
 				WHERE z.tgl BETWEEN '$tgl[awal]' AND '$tgl[akhir]'";
 			}else{
-				$sql = "SELECT a.*, b.nama_supp, c.nama_obat, z.tgl FROM tb_permintaan_list a 
+				$sql = "SELECT a.*, b.nama_supp, c.nama_barang, z.tgl FROM tb_permintaan_list a 
 				LEFT JOIN tb_permintaan z ON a.id_per = z.id_per 
 				LEFT JOIN tb_supplier b ON z.id_supp = b.id_supplier 
-				LEFT JOIN tb_obat c ON a.id_obat = c.id";
+				LEFT JOIN tb_barang c ON a.id_barang = c.id";
 			}
 
 			$exe = mysqli_query($conn,$sql);
@@ -63,7 +63,7 @@
 			  <td><?php echo $no++; ?></td>
 			  <td><?php echo date('d-m-Y', strtotime($value['tgl'])); ?></td>
 			  <td><?php echo $value['nama_supp'] ?></td>
-			  <td><?php echo $value['nama_obat'] ?></td>
+			  <td><?php echo $value['nama_barang'] ?></td>
 			  <td><?php echo $value['jumlah'] ?></td>
 			</tr>
 

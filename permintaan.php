@@ -21,12 +21,12 @@
 		</div>
 		<div class="form-group">
 			<label for="">Barang</label>
-			<select name="obat" class="form-control">
+			<select name="barang" class="form-control">
 				<option value="">~ Pilih Barang ~</option>
-				<?php $qob = "SELECT * FROM tb_obat";
+				<?php $qob = "SELECT * FROM tb_barang";
 				$exo = mysqli_query($conn, $qob);
 				while ($ob = mysqli_fetch_array($exo)) { ?>
-					<option value="<?php echo $ob['id'] ?>"><?php echo $ob['nama_obat'] ?></option>
+					<option value="<?php echo $ob['id'] ?>"><?php echo $ob['nama_barang'] ?></option>
 				<?php }
 				 ?>
 			</select>
@@ -63,10 +63,10 @@
 			<tbody>
 			<?php
 			$no = 1;
-			$sql = "SELECT a.*, b.nama_supp, c.nama_obat,z.keterangan FROM tb_permintaan_list a 
+			$sql = "SELECT a.*, b.nama_supp, c.nama_barang,z.keterangan FROM tb_permintaan_list a 
 			LEFT JOIN tb_permintaan z ON a.id_per = z.id_per 
 			LEFT JOIN tb_supplier b ON z.id_supp = b.id_supplier 
-			LEFT JOIN tb_obat c ON a.id_obat = c.id
+			LEFT JOIN tb_barang c ON a.id_barang = c.id
 			WHERE a.id_per = '$id_per'";
 			$exe = mysqli_query($conn,$sql);
 			while ($value =  mysqli_fetch_array($exe)) { ?>
@@ -74,7 +74,7 @@
 				<tr>
 					<td><?php echo $no++; ?></td>
 					<td><?php echo $value['nama_supp'] ?></td>
-					<td><?php echo $value['nama_obat'] ?></td>
+					<td><?php echo $value['nama_barang'] ?></td>
 					<td><?php echo $value['jumlah'] ?></td>
 					<td><?php echo $value['keterangan'] ?></td>
 					<td><a href="" title="" class="btn btn-sm btn-danger">Delete</a></td>

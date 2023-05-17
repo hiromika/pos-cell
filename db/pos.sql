@@ -42,14 +42,14 @@ INSERT INTO `tb_jenis` (`id`, `nama_jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_obat`
+-- Table structure for table `tb_barang`
 --
 
-CREATE TABLE `tb_obat` (
+CREATE TABLE `tb_barang` (
   `id` int(11) NOT NULL,
-  `kode_obat` varchar(20) NOT NULL,
+  `kode_barang` varchar(20) NOT NULL,
   `id_supp` int(11) NOT NULL,
-  `nama_obat` varchar(50) NOT NULL,
+  `nama_barang` varchar(50) NOT NULL,
   `keterangan` text NOT NULL,
   `harga_modal` int(11) NOT NULL,
   `harga_jual` int(11) NOT NULL,
@@ -63,12 +63,12 @@ CREATE TABLE `tb_obat` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_obat_stok`
+-- Table structure for table `tb_barang_stok`
 --
 
-CREATE TABLE `tb_obat_stok` (
+CREATE TABLE `tb_barang_stok` (
   `id` int(11) NOT NULL,
-  `id_obat` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
   `tgl_masuk` timestamp NOT NULL DEFAULT current_timestamp(),
   `tgl_expired` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -96,7 +96,7 @@ CREATE TABLE `tb_permintaan` (
 CREATE TABLE `tb_permintaan_list` (
   `id_list` int(11) NOT NULL,
   `id_per` int(11) NOT NULL,
-  `id_obat` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -184,15 +184,15 @@ ALTER TABLE `tb_jenis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_obat`
+-- Indexes for table `tb_barang`
 --
-ALTER TABLE `tb_obat`
+ALTER TABLE `tb_barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_obat_stok`
+-- Indexes for table `tb_barang_stok`
 --
-ALTER TABLE `tb_obat_stok`
+ALTER TABLE `tb_barang_stok`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -242,15 +242,15 @@ ALTER TABLE `tb_jenis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_obat`
+-- AUTO_INCREMENT for table `tb_barang`
 --
-ALTER TABLE `tb_obat`
+ALTER TABLE `tb_barang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_obat_stok`
+-- AUTO_INCREMENT for table `tb_barang_stok`
 --
-ALTER TABLE `tb_obat_stok`
+ALTER TABLE `tb_barang_stok`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

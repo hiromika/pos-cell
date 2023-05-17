@@ -25,8 +25,8 @@
           <tr class="bg-info">
             <th>No</th>
             <th style="display: none;">id</th>
-            <th>Kode Obat</th>
-            <th>Nama Obat</th>
+            <th>Kode barang</th>
+            <th>Nama barang</th>
             <th>Satuan</th>
             <th style="display: none;">idj</th>
             <th>Jenis</th>
@@ -40,7 +40,7 @@
         <tbody>
         <?php 
           $no = 1;
-          $sql = "SELECT *, a.id as idb, b.id as idj FROM tb_obat a 
+          $sql = "SELECT *, a.id as idb, b.id as idj FROM tb_barang a 
           LEFT JOIN tb_jenis b ON a.jenis = b.id 
           WHERE a.jenis = '$jenis[id]'";
           $query  = mysqli_query($conn,$sql);
@@ -48,8 +48,8 @@
           <tr>
             <td><?php echo $no++; ?></td>
             <td style="display: none;"><?php echo $data['idb']; ?></td>
-            <td><?php echo $data['kode_obat'] ?></td>
-            <td><?php echo $data['nama_obat'] ?></td>
+            <td><?php echo $data['kode_barang'] ?></td>
+            <td><?php echo $data['nama_barang'] ?></td>
             <td><?php echo $data['satuan'] ?></td>
             <td style="display: none;"><?php echo $data['jenis'] ?></td>
             <td><?php echo $data['nama_jenis'] ?></td>
@@ -88,7 +88,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Nama Obat</th>
+        <th>Nama barang</th>
         <th>Satuan</th>
         <th>Harga</th>
         <th>Jumlah</th>
@@ -100,13 +100,13 @@
     <?php
         if ($idt > 0) { 
        
-        $sql2    = "SELECT *,a.id as idts FROM tb_transaksi_list a LEFT JOIN tb_obat b ON a.id_menu=b.id  WHERE a.id_trans = '$idt'";
+        $sql2    = "SELECT *,a.id as idts FROM tb_transaksi_list a LEFT JOIN tb_barang b ON a.id_menu=b.id  WHERE a.id_trans = '$idt'";
         $query2  = mysqli_query($conn,$sql2); 
 
         while ($data = mysqli_fetch_array($query2)) {
     ?>
       <tr>
-        <td><?php echo $data['nama_obat']; ?></td>
+        <td><?php echo $data['nama_barang']; ?></td>
         <td><?php echo $data['satuan']; ?></td>
         <td>Rp.<?php echo number_format($data['harga_jual'],0,',','.'); ?></td>
         <td><?php echo $data['jumlah']; ?></td>

@@ -1,4 +1,4 @@
-<h1>Form Penambahan Obat</h1>
+<h1>Form Penambahan barang</h1>
 <hr>
 
 <div class="row">
@@ -6,8 +6,8 @@
 		  <form action="proses_master.php?kode=3&id=&ido=" method="POST" class="form" accept-charset="utf-8">
 			
 			<div class="form-group">
-				<label> Kode obat :</label>
-				<input type="text" class="form-control" name="kode_obat" value="" placeholder="Kode obat">
+				<label> Kode barang :</label>
+				<input type="text" class="form-control" name="kode_barang" value="" placeholder="Kode barang">
 			</div>
 			<div class="form-group">
 				<label> Supplier :</label>
@@ -23,8 +23,8 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label> Nama obat :</label>
-				<input type="text" class="form-control" name="nama_obat" value="" placeholder="Nama obat">
+				<label> Nama barang :</label>
+				<input type="text" class="form-control" name="nama_barang" value="" placeholder="Nama barang">
 			</div>
 			<div class="form-group">
 				<label> satuan :</label>

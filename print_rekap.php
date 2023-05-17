@@ -24,7 +24,22 @@ include "koneksi.php";
 		}
 </style>
 </head>
-<body onload="window.print(); history.back() " style="font-satuan: 20px;">
+<body onload=" 
+  var css = '@page { size: landscape; }',
+    head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+
+  style.type = 'text/css';
+  style.media = 'print';
+
+  if (style.styleSheet){
+  style.styleSheet.cssText = css;
+  } else {
+  style.appendChild(document.createTextNode(css));
+  }
+
+  head.appendChild(style);
+  window.print(); history.back() " style="font-satuan: 20px;">
 <div class="container">
 
 <div class="row">
@@ -34,8 +49,8 @@ include "koneksi.php";
        <td>
        </td>
        <td>
-        <h3 class="text-center">Homestation<br>
-           <h5 class="text-center">Medan Satria jl Alamanda V nomer 17. Bekasi barat.</h5></h3> 
+        <h3 class="text-center">Sinar Cahaya CELL<br>
+           <h5 class="text-center">Jalan Kelender, Jakarta Timur.</h5></h3> 
        </td>
        <td>
        </td>
@@ -45,24 +60,24 @@ include "koneksi.php";
         $akhir  = $_GET['akhir'];
 
           $sql = " SELECT a.*,
-                b.nm_obat, 
-                b.hr_obat,
+                b.nm_barang, 
+                b.hr_barang,
                 b.satuan, 
-                b.jm_obat,
+                b.jm_barang,
                 b.laba, 
-                b.jum_obat
+                b.jum_barang
             FROM tb_transaksi a 
             LEFT JOIN (
               SELECT 
                 z.id_trans, 
-                SUM(z.jumlah) as jum_obat ,
+                SUM(z.jumlah) as jum_barang ,
                 SUM(z.laba) as laba,
-                GROUP_CONCAT(x.nama_obat) as nm_obat ,
-                GROUP_CONCAT(x.harga_jual) as hr_obat ,
+                GROUP_CONCAT(x.nama_barang) as nm_barang ,
+                GROUP_CONCAT(x.harga_jual) as hr_barang ,
                 GROUP_CONCAT(x.satuan) as satuan ,
-                GROUP_CONCAT(z.jumlah) as jm_obat 
+                GROUP_CONCAT(z.jumlah) as jm_barang 
                 FROM tb_transaksi_list z  
-                LEFT JOIN  tb_obat x ON z.id_menu = x.id 
+                LEFT JOIN  tb_barang x ON z.id_menu = x.id 
                 GROUP BY z.id_trans
             ) as b ON b.id_trans = a.id
             WHERE a.tgl_transaksi BETWEEN '$awal' AND '$akhir'
@@ -104,22 +119,22 @@ include "koneksi.php";
             <td><?php echo $no++; ?></td>
             <td><?php echo date('d-M-Y H:i A', strtotime($tran['tgl_transaksi'])); ?></td>
             <td><?php echo $tran['jumlah_menu']; ?></td>
-            <td><?php echo $tran['jum_obat']; ?></td>
+            <td><?php echo $tran['jum_barang']; ?></td>
             <td><table style="width: 100%;">
               <thead>
                 <tr>
                   <th width="40%">Nama</th>
-                  <th>satuan</th>
+                  <th>Satuan</th>
                   <th>Harga</th>
                   <th>Jumlah</th>
                 </tr>
               </thead>
               <tbody>
               <?php 
-                $nm = explode(',', $tran['nm_obat']);
+                $nm = explode(',', $tran['nm_barang']);
                 $sz = explode(',', $tran['satuan']);
-                $hr = explode(',', $tran['hr_obat']);
-                $jm = explode(',', $tran['jm_obat']);
+                $hr = explode(',', $tran['hr_barang']);
+                $jm = explode(',', $tran['jm_barang']);
                for ($i=0; $i < count($jm) ; $i++) {             
                ?>
 

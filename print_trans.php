@@ -42,8 +42,8 @@ include "koneksi.php";
        <td>
        </td>
        <td>
-        <h3 class="text-center">Homestation<br>
-           <h5 class="text-center">Medan Satria jl Alamanda V nomer 17. Bekasi barat.</h5></h3> 
+        <h3 class="text-center">Sinar Cahaya CELL<br>
+           <h5 class="text-center">Jalan Kelender, Jakarta Timur.</h5></h3> 
        </td>
        <td>
        </td>
@@ -74,14 +74,14 @@ include "koneksi.php";
     <?php
         if ($idt > 0) { 
        
-        $sql2    = "SELECT *,a.id as idts FROM tb_transaksi_list a LEFT JOIN tb_obat b ON a.id_menu=b.id  WHERE a.id_trans = '$idt'";
+        $sql2    = "SELECT *,a.id as idts FROM tb_transaksi_list a LEFT JOIN tb_barang b ON a.id_menu=b.id  WHERE a.id_trans = '$idt'";
         $query2  = mysqli_query($conn,$sql2); 
 
         while ($data = mysqli_fetch_array($query2)) {
        
     ?>
       <tr>
-        <td><?php echo $data['nama_obat']; ?></td>
+        <td><?php echo $data['nama_barang']; ?></td>
         <td><?php echo number_format($data['harga_jual'],0,',','.'); ?></td>
         <td><?php echo $data['satuan']; ?></td>
         <td><?php echo $data['jumlah']; ?></td>

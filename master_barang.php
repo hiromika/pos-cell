@@ -24,16 +24,16 @@
 		<tbody>
 		<?php 
 			$no = 1;
-			$sql = "SELECT *, a.id as idm, b.id as idj, c.id_supplier as id_supp FROM tb_obat a LEFT JOIN tb_jenis b ON a.jenis = b.id LEFT JOIN tb_supplier c ON a.id_supp = c.id_supplier";
+			$sql = "SELECT *, a.id as idm, b.id as idj, c.id_supplier as id_supp FROM tb_barang a LEFT JOIN tb_jenis b ON a.jenis = b.id LEFT JOIN tb_supplier c ON a.id_supp = c.id_supplier";
 			$query  = mysqli_query($conn,$sql);
 			while ($data = mysqli_fetch_array($query)) { ?>
 			<tr>
 				<td><?php echo $no; ?></td>
 				<td style="display: none;"><?php echo $data['idm']; ?></td>
-				<td><?php echo $data['kode_obat'] ?></td>
+				<td><?php echo $data['kode_barang'] ?></td>
 				<td style="display: none;"><?php echo $data['id_supp'] ?></td>
 				<td><?php echo $data['nama_supp'] ?></td>
-				<td><?php echo $data['nama_obat'] ?></td>
+				<td><?php echo $data['nama_barang'] ?></td>
 				<td style="display: none;"><?php echo $data['jenis'] ?></td>
 				<td><?php echo $data['satuan'] ?></td>
 				<td><?php echo $data['nama_jenis'] ?></td>
@@ -43,8 +43,8 @@
 				<td class="<?php echo ($data['stock'] <= 5)?'bg-danger':'' ?>"><?php echo $data['stock'] ?></td>
 				<td><?php echo date('d-M-Y H:i A', strtotime($data['last_update'])); ?></td>
 				<td>
-				<a href="" class="btn btn-success btn-xs btnedit" data-toggle="modal" title="">Edit</a>&nbsp
-				<a href="home.php?link=master_obat_view&id=<?php echo $data['idm'];?>&ido=" class="btn btn-info btn-xs" title="">View</a>
+				<a href="" class="btn btn-success btn-xs btnedit" data-toggle="modal" title="">Tambah Stok / Edit</a>&nbsp
+				<a href="home.php?link=master_barang_view&id=<?php echo $data['idm'];?>&ido=" class="btn btn-info btn-xs" title="">View</a>
 				<a href="proses_master.php?kode=1&id=<?php echo $data['idm'];?>&ido=" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Yakin.. ?');" title="">Delete</a>
 				</td>
 			</tr>
@@ -78,7 +78,7 @@
 			
 			<div class="form-group">
 				<label> Kode barang :</label>
-				<input type="text" class="form-control" name="kode_obat" value="" placeholder="Kode barang">
+				<input type="text" class="form-control" name="kode_barang" value="" placeholder="Kode barang">
 			</div>
 			<div class="form-group">
 				<label> Supplier :</label>
@@ -95,7 +95,7 @@
 			</div>
 			<div class="form-group">
 				<label> Nama barang :</label>
-				<input type="text" class="form-control" name="nama_obat" value="" placeholder="Nama barang">
+				<input type="text" class="form-control" name="nama_barang" value="" placeholder="Nama barang">
 			</div>
 			<div class="form-group">
 				<label> satuan :</label>
@@ -169,7 +169,7 @@
 			     	<input style="display: none;" type="text" name="id" id="id" value="">
 					<div class="form-group">
 						<label> Kode barang :</label>
-						<input type="text" class="form-control" name="kode_obat" id="kode_obat" value="" placeholder="Kode barang">
+						<input type="text" class="form-control" name="kode_barang" id="kode_barang" value="" placeholder="Kode barang">
 					</div>
 					<div class="form-group">
 						<label> Supplier :</label>
@@ -186,11 +186,11 @@
 					</div>
 					<div class="form-group">
 						<label> Nama Menu :</label>
-						<input type="text" class="form-control" id="nama_obat" name="nama_obat" value="">
+						<input type="text" class="form-control" id="nama_barang" name="nama_barang" value="">
 					</div>
 					<div class="form-group">
 						<label> satuan </label>
-						<select name="satuan" id="satuan_obat" class="form-control">
+						<select name="satuan" id="satuan_barang" class="form-control">
 							<option selected="" disabled >~ Pilih Satuan ~</option>
 							<option value="Pcs" > Pcs </option>
 						</select>
@@ -273,9 +273,9 @@ $(".btnedit").click(function(){
         	keyboard : false,
   });
   $("#id").val($(this).closest('tr').children()[1].textContent);
-  $("#kode_obat").val($(this).closest('tr').children()[2].textContent);
-  $("#nama_obat").val($(this).closest('tr').children()[5].textContent);
-  $("#satuan_obat").val($(this).closest('tr').children()[7].textContent);
+  $("#kode_barang").val($(this).closest('tr').children()[2].textContent);
+  $("#nama_barang").val($(this).closest('tr').children()[5].textContent);
+  $("#satuan_barang").val($(this).closest('tr').children()[7].textContent);
   $("#harga_modal").val($(this).closest('tr').children()[10].textContent);
   $("#harga_jual").val($(this).closest('tr').children()[11].textContent);
   $("#jenis").val($(this).closest('tr').children()[6].textContent);

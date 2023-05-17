@@ -6,7 +6,7 @@ if (isset($_SESSION['username'])){
 <!DOCTYPE html>
 <html lang="">
 <head>
-  <title>Homestation</title>
+  <title>Sinar Cahaya CELL</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
@@ -121,8 +121,8 @@ if (isset($_SESSION['username'])){
                 </h2>
                 </div> 
                 <div class="col-md-11">
-                  <h2>Homestation <p class="pull-right" style="font-size: 16px !important;"><?php echo $_SESSION['username']; ?></p><h2><hr style="margin: 0px !important;">
-                  <h5>Medan Satria jl Alamanda V nomer 17. Bekasi barat.</h5>
+                  <h2>Sinar Cahaya CELL <p class="pull-right" style="font-size: 16px !important;"><?php echo $_SESSION['username']; ?></p><h2><hr style="margin: 0px !important;">
+                  <h5>Jalan Kelender, Jakarta Timur.</h5>
                 </div>
               </div>
             </div>
