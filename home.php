@@ -63,7 +63,7 @@ if (isset($_SESSION['username'])){
                 <?php 
                 }else if ($_SESSION['level'] == 2) { ?>
                    <li>
-                      <a href="home.php?link=transaksi&idt=0">Penjualan</a>
+                      <a href="home.php?link=transaksi&idt=0">Transaksi</a>
                   </li>
                      <li>
                       <a href="home.php?link=rekap">Laporan Penjualan Barang</a>
@@ -74,7 +74,7 @@ if (isset($_SESSION['username'])){
                 <?php 
                 }else{ ?>
                   <li>
-                      <a href="home.php?link=transaksi&idt=0">Penjualan</a>
+                      <a href="home.php?link=transaksi&idt=0">Transaksi</a>
                   </li>
                   <li>
                       <a href="home.php?link=master_supp">Master Supplier</a>
