@@ -5,20 +5,26 @@
   $que = mysqli_query($conn,"SELECT * FROM tb_jenis"); ?>
 
 <ul class="nav nav-tabs">
-<?php while ($jenis = mysqli_fetch_array($que)) { ?>
-  <li class=""><a data-toggle="tab" href="#set<?php echo $jenis['id']; ?>"><?php echo $jenis['nama_jenis']; ?></a></li>
 <?php 
+  $no=1;
+while ($jenis = mysqli_fetch_array($que)) { 
+  ?>
+  <li class=""><a data-toggle="tab" href="#set<?php echo $no; ?>"><?php echo $jenis['nama_jenis']; ?></a></li>
+<?php 
+  $no++;
   }
  ?>
 </ul>
 
 <div class="tab-content">
 <?php 
-   $idt = $_GET['idt'];
-   $que = mysqli_query($conn,"SELECT * FROM tb_jenis");
-  while ($jenis = mysqli_fetch_array($que)) {
+  $idt = $_GET['idt'];
+  $que = mysqli_query($conn,"SELECT * FROM tb_jenis");
+  $set=1;
+  while ($jenis = mysqli_fetch_array($que))
+  {
 ?>
-    <div id="set<?php echo $jenis['id']; ?>" class="tab-pane fade in active">
+    <div id="set<?php echo $set; ?>" class="tab-pane fade in active">
       <h3><?php echo $jenis['nama_jenis']; ?></h3>
       <table class="table table-responsive" id="tb_makanan" style="width: 100% !important;">
         <thead>
@@ -77,7 +83,10 @@
         </tbody>
       </table>
     </div>
-<?php } ?>
+<?php 
+  $set++;
+  } 
+?>
   </div>
 
   <!-- end Jenis -->
@@ -194,12 +203,9 @@
         $(this).tab('show');
     });
     
-    activaTab('aaa');
-    
-    $('#tb_makanan,#tb_minuman').DataTable();
+  $('.nav-tabs a[href="#set1"]').tab('show');
+
+  $('#tb_makanan,#tb_minuman').DataTable();
   })
 
-  function activaTab(tab){
-      $('.nav-tabs a[href="#set1"]').tab('show');
-  };
   </script>
